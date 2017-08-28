@@ -1,5 +1,6 @@
 package com.airbnb.lottie;
 
+import android.content.Context;
 import android.support.annotation.Nullable;
 import android.view.View;
 
@@ -118,6 +119,23 @@ class TestRobot {
     Screenshot.snap(view)
         .setGroup("test_color_filter")
         .setName("null_color_filter")
+        .record();
+  }
+
+  static LottieAnimationView viewForAnimation(Context context, String fileName) {
+    LottieAnimationView view = new LottieAnimationView(context);
+    view.setComposition(LottieComposition.Factory.fromFileSync(context, fileName));
+    return view;
+  }
+
+  static void setupAndRecord(String group, String name, View view) {
+    ViewHelpers
+        .setupView(view)
+        .layout();
+
+    Screenshot.snap(view)
+        .setGroup(group)
+        .setName(name)
         .record();
   }
 }

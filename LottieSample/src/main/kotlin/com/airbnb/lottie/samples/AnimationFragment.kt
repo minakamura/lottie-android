@@ -72,8 +72,8 @@ class AnimationFragment : Fragment() {
     }
 
     override fun onCreateView(
-            inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
-        val view = container!!.inflate(R.layout.fragment_animation, false)
+            inflater: LayoutInflater?, container: ViewGroup?, savedInstanceState: Bundle?): View? {
+        val view = container!!.inflate(R.layout.fragment_animation)
 
         L.setTraceEnabled(true)
         view.animationView.setPerformanceTrackingEnabled(true)
